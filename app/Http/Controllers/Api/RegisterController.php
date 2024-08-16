@@ -46,7 +46,7 @@ class RegisterController extends BaseController
         {
 		    return $this->sendError($validator->errors()->first());
         }
-		$$fileName = null;
+		$fileName = null;
         if($request->hasFile('photo')) 
         {
             $file = request()->file('photo');
