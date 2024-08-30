@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Setting;
 use App\Models\User;
+use App\Models\Donate;
 use App\Rules\MatchOldPassword;
 use Hash;
 use Carbon\Carbon;
@@ -32,6 +33,12 @@ class AdminController extends Controller
     {
         $profile=Auth()->user();
         return view('backend.users.profile')->with('profile',$profile);
+    }
+    
+    public function donations()
+    {
+        $data = Donate::paginate(10);
+        return view('backend.donations.index')->with('donations', $data);
     }
 
     public function profileUpdate(Request $request,$id)

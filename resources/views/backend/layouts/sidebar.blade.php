@@ -48,6 +48,12 @@
             <span>Orders</span>
         </a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('donations.index')}}">
+            <i class="fas fa-cash fa-chart-area"></i>
+            <span>Donations</span>
+        </a>
+    </li>
 
    
     

@@ -23,6 +23,7 @@ Route::get('/product-grids',[FrontendController::class,'productGrids'])->name('p
 
 Auth::routes(['register'=>false]);
 
+Route::get('saad',[FrontendController::class,'calculator']);
 Route::get('user/login',[FrontendController::class,'login'])->name('login.form');
 Route::post('user/login',[FrontendController::class,'loginSubmit'])->name('login.submit');
 Route::get('user/logout',[FrontendController::class,'logout'])->name('user.logout');
@@ -120,7 +121,8 @@ Route::get('payment/success', [\App\Http\Controllers\PayPalController::class,'su
 Route::group(['prefix'=>'admin','middleware'=>['auth','admin']],function(){
     Route::get('/dashboard',[\App\Http\Controllers\AdminController::class,'index'])->name('admin.dashboard');
     
-   
+    Route::get('/donations', [App\Http\Controllers\AdminController::class,'donations'])->name('donations.index');
+
     // user route
     Route::resource('users',\App\Http\Controllers\UsersController::class);
     // vendor route
