@@ -39,6 +39,7 @@ Route::any('password/reset', [\App\Http\Controllers\Api\CodeCheckController::cla
 Route::post('password/code/check', [\App\Http\Controllers\Api\CodeCheckController::class,'code_verify']);
 // Route::get('guide', [\App\Http\Controllers\Api\CMSController::class, 'guide']);
 // Route::get('term/conditions', [\App\Http\Controllers\Api\CMSController::class, 'termanscondition']);
+Route::get('product',[App\Http\Controllers\Api\ProductController::class,'index']);
 
 Route::group(['middleware' => ['api','auth:api'], 'prefix' => 'auth'], function () 
 {

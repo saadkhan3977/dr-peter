@@ -50,7 +50,7 @@ class RegisterController extends BaseController
         if($request->hasFile('photo')) 
         {
             $file = request()->file('photo');
-            $fileName = md5($file->getClientOriginalName() . time()) . $file->getClientOriginalExtension();
+            $fileName = md5($file->getClientOriginalName() . time()) . '.' . $file->getClientOriginalExtension();
             $file->move('uploads/user/profiles/', $fileName);  
             $profile = asset('uploads/user/profiles/'.$fileName);
         }
